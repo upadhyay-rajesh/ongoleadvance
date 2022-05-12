@@ -3,8 +3,67 @@
 		<title>Registration Page</title>
 		<link rel="stylesheet" href="my.css">
 		
+		<script>
+			function validateEmail(){
+				var v=document.getElementById("em").value;
+				//step 1 how to get xhr
+				var x=new XMLHttpRequest();
+				//step 2 how xhr will open connection with server
+				x.open("GET","EmailValidationServlet?email="+v,true);
+				//step 3 how xhr will send request to server
+				x.send();
+				//step 4 how xhr will get response from server
+				
+				x.onreadystatechange=function(){
+					if(x.readyState==4){
+						var v1=x.responseText;
+						document.getElementById("eresult").innerHTML=v1;
+					}
+				}
+			}
+			function loadCountry(){
+				var x=new XMLHttpRequest();
+				//step 2 how xhr will open connection with server
+				x.open("GET","LoadCountryServlet",true);
+				//step 3 how xhr will send request to server
+				x.send();
+				//step 4 how xhr will get response from server
+				
+				x.onreadystatechange=function(){
+					if(x.readyState==4){
+						var v1=x.responseText;
+						document.getElementById("countryresult").innerHTML=v1;
+					}
+				}
+			}
+			function loadCaptcha(){
+				var x=new XMLHttpRequest();
+				//step 2 how xhr will open connection with server
+				x.open("GET","LoadCaptchaServlet",true);
+				//step 3 how xhr will send request to server
+				x.send();
+				//step 4 how xhr will get response from server
+				
+				x.onreadystatechange=function(){
+					if(x.readyState==4){
+						var v1=x.responseText;
+						document.getElementById("captcharesult").innerHTML=v1;
+					}
+				}
+			}
+			
+			function validateCapcha(){
+				var v1=document.getElementById("c1").value;
+				var v2=document.getElementById("c2").value;
+				
+				if(v1==v2){
+					document.getElementById("register").disabled=false;
+				}
+			}
+		</script>
+		
 	</head>
-	<body bgcolor="pink">
+	<body bgcolor="pink" onLoad="loadCountry()">
 		
 		<p  id="a" class="p1" align="center"><b>Registration Page</b></p>
 		
@@ -14,24 +73,32 @@
 			<table border=25>
 				<tr>
 					<td>Name</td>
-					<td><input type=text name=nm></td>
+					<td><input type=text name=nm required pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"></td>
 				</tr>
 				<tr>
 					<td>Password</td>
-					<td><input type=password name=pass></td>
+					<td><input type=password name=pass minlength=4 maxlength=8 pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"></td>
 				</tr>
 				<tr>
 					<td>Email</td>
-					<td><input type=email name=em></td>
+					<td><input type=email id="em" name=em onkeyup="validateEmail()"><div id="eresult"></div></td>
 				</tr>
 				
 				<tr>
 					<td>Address</td>
-					<td><input type=text name=ad></td>
+					<td><input type=text name=ad ></td>
+				</tr>
+				<tr>
+					<td>Country</td>
+					<td><div id="countryresult"></div></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><div id="captcharesult"></div></td>
 				</tr>
 				
 				<tr>
-					<td><input type=submit value=Register></td>
+					<td><input type=submit value=Register id="register" disabled></td>
 					<td><input type=reset value=Reset></td>
 				</tr>
 			
