@@ -1,0 +1,15 @@
+[{
+        "username": "Rajesh",
+        "firstName": "Rajesh",
+        "lastName": "Upadhyay",
+        "gender": "Male",
+        "email": "upadhyay.rajesh@rediffmail.com"
+    },
+    {
+        "username": "Dhruva",
+        "firstName": "Prakash",
+        "lastName": "Upadhyay",
+        "gender": "Male",
+        "email": "rajesh@yahoo.com"
+    }
+]
