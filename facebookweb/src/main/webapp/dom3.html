@@ -1,0 +1,67 @@
+<body>
+    <p id="demo">This is a paragraph.</p>
+    
+    <script>
+        document.getElementById("demo").innerHTML = "Paragraph Changed";
+    </script>
+</body>
+
+<body>
+<div class="test"> This is a div element with class="test". </div>
+
+<p>
+	<h1 class= "test"> This is a h1 element with class="test". </h1>
+	This is a paragraph.
+</p>
+
+<p class="test">This is a p element with class="test".</p>
+
+<script>
+	var matches = document.getElementsByClassName("test");
+	for(var elem in matches) {  
+        matches[elem].style.background = "yellow";
+    }
+</script>
+</body>
+
+<body>
+    <h1> Heading </h1>
+    <p>This is a paragraph of text.</p>
+    <div>This is another paragraph of text.</div>
+    <p>This is one more paragraph of text.</p>   
+ 
+    <script>
+       	var matches = document.getElementsByTagName("p");
+        
+        for(var elem in matches) {  
+        matches[elem].style.background = "red";
+        }
+    </script>
+</body>
+
+<body>
+    <p id = "para">This is a paragraph</p>
+    <ul>
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Mango</li>
+    </ul>
+        
+    <script>  
+    var matches = document.querySelectorAll("ul li");
+ 
+    for(var elem of matches) {  
+        document.write(elem.innerHTML + "<br>"); //outputs: "Apple Orange Mango"
+    }
+      document.write(document.querySelector('#para').textContent); //outputs: "This is a paragraph"
+     
+    </script>
+</body>
+
+
+
+
+
+
+
+

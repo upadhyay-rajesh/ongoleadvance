@@ -18,6 +18,7 @@ public class LoadCaptchaServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		int i=(int)(Math.random()*10000);
+		String ss="md$&hddf#";
 
 		out.println("<html><body>");
 

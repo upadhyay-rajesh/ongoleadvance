@@ -1,0 +1,138 @@
+<body>
+<div>
+	This is a div element.
+<div>
+
+<script>
+    // selecting the <div> element
+  	var elmt = document.querySelector('div'); 
+
+    //creating new <p> element and adding content inside it. 
+	var newElmt = document.createElement('p');  
+	newElmt.innerHTML = '<b>The div element is replaced with p element</b>';
+
+    //replacing the <div> element with the <p> element
+	elmt.parentNode.replaceChild(newElmt, elmt);
+
+</script>
+</body>
+
+var elmt = document.querySelector('div'); // select the first returned <div> element 
+elmt.parentNode.removeChild(elmt);
+
+<body>
+    <ul id="animals">
+    </ul>
+    
+    <script>
+        function createAnimalList(name) {
+            let li = document.createElement('li');
+            li.textContent = name;
+            return li;
+        }
+        // get the ul #animals
+        const list = document.querySelector('#animals');
+        // add animals to the list
+        list.appendChild(createAnimalList('Lion'));
+        list.appendChild(createAnimalList('Tiger'));
+        list.appendChild(createAnimalList('Wolf'));
+    </script>
+</body>
+
+<body>
+    <ul id="animal">
+    <li>Lion</li>
+    <li>Tigerr</li>
+    </ul>
+    
+   <script>
+        let animal = document.getElementById('animal');
+        
+        // create a new li node
+        let li = document.createElement('li');
+        li.textContent = 'Wolf';
+
+        // insert a new node before the first list item
+        animal.insertBefore(li, animal.firstElementChild);
+    </script>
+</body>
+
+<body>
+    <ul id="animal">
+    <li>Lion</li>
+    <li>Tiger</li>
+    </ul>
+    
+   <script>
+        let animal = document.getElementById('animal');
+        
+        // create a new li node
+        let li = document.createElement('li');
+        li.textContent = 'Wolf';
+
+        // insert a new node before the first list item
+        animal.insertBefore(li, animal.firstElementChild.nextSibling);
+    </script>
+</body>
+
+<body>
+    <div id = "content">
+    	This is div element.
+    </div>
+   <script>
+   		// Getting a text content
+        let content = document.getElementById('content');
+		alert("Getting a text content inside div element: " +  content.textContent);
+        
+        //setting a text content
+       content.textContent = 'New text content in the div element';
+        
+    </script>
+</body>
+
+<body>
+  <div id="myBdy">
+    <p id = "para">This is Paragraph.</p>
+
+    <button onclick="myFunction()"  >Try it</button>
+
+    <p id="demo"></p>
+
+  </div>
+<script>
+  function myFunction() {
+      // get HTML of Element
+    var x = document.getElementById("para").innerHTML;
+    document.getElementById("demo").innerHTML = x;  
+  }
+// You can understand the difference between innerHTML and textContent property clearly from the output of the
+// below two alert boxes
+  alert ("textcontent property:" + document.getElementById("myBdy").textContent);
+  alert ("innerHTML property:" + document.getElementById("myBdy").innerHTML);
+</script>
+
+</body>
+
+<body>
+    <ul id="animal">
+        <li>Lion</li>
+        <li>Tiger</li>
+        <li>Wolf</li>
+    </ul>
+   <script>            
+        let list = document.querySelector('#animal');
+        let clonedList = list.cloneNode(true);
+        clonedList.id = 'cloned animal';
+        document.body.appendChild(clonedList);
+    </script>
+</body>
+
+
+
+
+
+
+
+
+
+

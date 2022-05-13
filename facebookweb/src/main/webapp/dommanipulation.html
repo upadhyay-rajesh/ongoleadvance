@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+ <ul id="animal">
+        <li>Lion</li>
+        <li>Tiger</li>
+        <li>Wolf</li>
+    </ul>
+   <script>            
+        let list = document.querySelector('#animal');
+        let clonedList = list.cloneNode(true);
+        clonedList.id = 'cloned animal';
+        document.body.appendChild(clonedList);
+    </script>
+</body>
+</html>
+
+
+
+
+
+

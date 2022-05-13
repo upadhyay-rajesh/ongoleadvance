@@ -1,0 +1,12 @@
+<body>
+    <ul >
+        <li>list item 1</li>
+        <li class="list">list item 2</li>
+        <li>list item 3</li>
+    </ul>
+    <script>             
+       const secondListItem = document.querySelector('.list');       
+        document.write(secondListItem.previousElementSibling.textContent) ;  // outputs:  "list item 1"
+       document.write(secondListItem.nextElementSibling.textContent);   //outputs: "list item 3"           
+    </script>
+</body>
