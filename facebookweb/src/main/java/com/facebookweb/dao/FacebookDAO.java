@@ -5,25 +5,36 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.persistence.EntityTransaction;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import com.facebookweb.entity.FacebookUser;
 
 public class FacebookDAO implements FacebookDAOInterface {
 
 	public int createProfileDAO(FacebookUser fb) {
 		int i=0;
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			Connection con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","system","rajesh");
-			PreparedStatement ps=con.prepareStatement("insert into facebookweb values(?,?,?,?)");
-			ps.setString(1, fb.getName());
-			ps.setString(2, fb.getPassword());
-			ps.setString(3,fb.getEmail() );
-			ps.setString(4, fb.getAddress());
-			i=ps.executeUpdate();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { Class.forName("oracle.jdbc.driver.OracleDriver"); Connection
+		 * con=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe",
+		 * "system","rajesh"); PreparedStatement
+		 * ps=con.prepareStatement("insert into facebookweb values(?,?,?,?)");
+		 * ps.setString(1, fb.getName()); ps.setString(2, fb.getPassword());
+		 * ps.setString(3,fb.getEmail() ); ps.setString(4, fb.getAddress());
+		 * i=ps.executeUpdate(); } catch(Exception e) { e.printStackTrace(); }
+		 */
+		
+		SessionFactory sf=new Configuration().configure().buildSessionFactory();
+		Session s=sf.openSession();
+		s.save(fb);
+		
+		EntityTransaction et=s.getTransaction();
+		et.begin();
+		et.commit();
+		i=1;
 		return i;
 	}
 
