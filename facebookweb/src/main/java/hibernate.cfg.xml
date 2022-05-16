@@ -13,9 +13,10 @@
       <property name="hibernate.connection.pool_size">10</property>
       <property name="show_sql">true</property>
       <property name="dialect">org.hibernate.dialect.OracleDialect</property>
-      <property name="hibernate.hbm2ddl.auto">create</property>
+       <property name="hibernate.hbm2ddl.auto">create</property> 
       
       <mapping class="com.facebookweb.entity.FacebookUser"/>
+      <mapping class="com.facebookweb.entity.Order"/>
       
 </session-factory>
 </hibernate-configuration>
